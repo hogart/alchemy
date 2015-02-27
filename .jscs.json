@@ -1,0 +1,14 @@
+{
+    "requireSpaceAfterKeywords": ["if", "for", "while", "do", "switch", "try", "catch"],
+    "disallowKeywordsOnNewLine": ["else"],
+    "disallowSpaceBeforePostfixUnaryOperators": true,
+    "disallowMultipleLineStrings": true,
+    "requireSpaceBeforeBinaryOperators": true,
+    "requireSpaceAfterBinaryOperators": true,
+    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "excludeFiles": [
+        "node_modules",
+        "tools",
+        "coverage"
+    ]
+}

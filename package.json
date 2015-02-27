@@ -1,0 +1,19 @@
+{
+  "name": "tes-alchemy",
+  "version": "0.0.1",
+  "description": "TES alchemy engine",
+  "main": "alchemy.js",
+  "scripts": {
+    "test": "npm run-script jscs",
+    "jscs": "./node_modules/jscs/bin/jscs ."
+  },
+  "keywords": [
+    "alchemy",
+    "tes"
+  ],
+  "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jscs": "^1.11.3"
+  }
+}
