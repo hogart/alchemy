@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 'use strict';
 
 import {Ingredient} from '../src/alchemy.js';
@@ -15,6 +16,6 @@ let mockData = {
 	}
 };
 
-mockData.ingredientList = Object.keys(mockData.ingredients).map((key) => { return mockData.ingredients[key] });
+mockData.ingredientList = Object.keys(mockData.ingredients).map((key) => { return mockData.ingredients[key]; });
 
 export default mockData;

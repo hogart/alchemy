@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 'use strict';
 
 import {getSuitableIngredients} from '../src/alchemy.js';

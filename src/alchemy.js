@@ -100,7 +100,7 @@ export function predictPotion (ingredients) {
 	let effects = {};
 	let resultingEffects = [];
 
-	iterateEffects(ingredients, (effect, ingredient) => {
+	iterateEffects(ingredients, (effect) => {
 		if (!effects[effect]) {
 			effects[effect] = true;
 		} else {
@@ -139,5 +139,5 @@ export function getSuitableIngredients (givenIngredient, ingredients) {
 export function getIngredientsForPotion (desiredEffects, ingredients) {
 	return ingredients.filter((/** @type {Ingredient} */ingredient) => {
 		return ingredient.hasSomeEffects(desiredEffects);
-	})
+	});
 }

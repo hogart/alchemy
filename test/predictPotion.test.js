@@ -1,10 +1,11 @@
+/* eslint-env mocha */
 'use strict';
 
 import {predictPotion} from '../src/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 
-describe('getPossiblePotion', function() {
+describe('getPossiblePotion', () => {
 	it('should correctly find which effects have 2 or more ingredients in common', () => {
 		assert.deepEqual(
 			predictPotion([
@@ -37,6 +38,6 @@ describe('getPossiblePotion', function() {
 				mockData.ingredients.kreshFiber
 			]),
 			0
-		)
+		);
 	});
 });

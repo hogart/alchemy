@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 'use strict';
 
 import {Ingredient} from '../src/alchemy.js';
@@ -6,12 +7,12 @@ import {assert} from 'chai';
 
 const alitHide = mockData.ingredients.alitHide;
 
-describe('Ingredient', function() {
+describe('Ingredient', () => {
 	//it('should have 4 effects', () => {
 	//	assert.equal(alitHide.effects.length, 4)
 	//});
 
-	it ('should correctly determine if it has given effect', () => {
+	it('should correctly determine if it has given effect', () => {
 
 		assert.ok(alitHide.hasEffect('Drain Intelligence'));
 		assert.notOk(alitHide.hasEffect('Paralyze'));

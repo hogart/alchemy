@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 'use strict';
 
 import {getIngredientsForPotion} from '../src/alchemy.js';
@@ -22,5 +23,5 @@ describe('getIngredientsForPotion', () => {
 			getIngredientsForPotion(['Fortify Fish-catching'], mockData.ingredientList),
 			0
 		);
-	})
+	});
 });

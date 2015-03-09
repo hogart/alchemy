@@ -1,10 +1,11 @@
+/* eslint-env mocha */
 'use strict';
 
 import {getPossiblePotion} from '../src/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 
-describe('getPossiblePotion', function() {
+describe('getPossiblePotion', () => {
 	it('should correctly detect possible potions', () => {
 		let detectAnimal = getPossiblePotion([
 			mockData.ingredients.alitHide,
@@ -41,6 +42,6 @@ describe('getPossiblePotion', function() {
 				mockData.ingredients.kreshFiber
 			]),
 			{}
-		)
-	})
+		);
+	});
 });
