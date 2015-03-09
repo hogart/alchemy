@@ -1,4 +1,5 @@
 {
+    "esnext": true,
     "requireSpaceAfterKeywords": ["if", "for", "while", "do", "switch", "try", "catch"],
     "disallowKeywordsOnNewLine": ["else"],
     "disallowSpaceBeforePostfixUnaryOperators": true,
