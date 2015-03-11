@@ -71,6 +71,22 @@ module.exports = function (grunt) {
 			}
 		},
 
+		browserify: {
+			options: {
+				transform: [['babelify', {
+					sourceMap: true
+				}]],
+				browserifyOptions: {
+					debug: true
+				}
+			},
+			dev: {
+				files: {
+					'public/index.js': ['src/index.js']
+				}
+			}
+		},
+
 		watch: {
 			styles: {
                 files: ['styles/blocks/*/*.styl', 'styles/index.styl'],
@@ -83,6 +99,10 @@ module.exports = function (grunt) {
 			templatesClient: {
 				files: ['templates/client/*.jade', 'templates/client/**/*.jade', 'templates/common/**/*.jade'],
 				tasks: ['jade:clientDev']
+			},
+			browserify: {
+				files: ['src/**/*.*'],
+				tasks: ['browserify:dev']
 			}
 		}
 	});
@@ -90,8 +110,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-browserify');
 
-	grunt.registerTask('build', ['stylus:dev', 'jade:serverDev', 'jade:clientDev']);
+	grunt.registerTask('build', ['stylus:dev', 'jade:serverDev', 'jade:clientDev', 'babel:dev', 'browserify:dev']);
 	grunt.registerTask('prod', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
 	grunt.registerTask('default', ['build', 'watch']);
 };

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 'use strict';
 
-import {Ingredient} from '../src/alchemy.js';
+import {Ingredient} from '../src/lib/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 

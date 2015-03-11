@@ -9,9 +9,7 @@
     "jscs": "jscs .",
     "eslint": "eslint .",
     "lint": "npm run jscs",
-    "mocha": "mocha --compilers js:./node_modules/babel/register -u bdd -R spec --recursive test",
-    "babel": "babel src -w -s --out-dir lib --modules umd",
-    "prepublish": "babel src -s --out-dir lib --modules umd"
+    "mocha": "mocha --compilers js:./node_modules/babel/register -u bdd -R spec --recursive test"
   },
   "keywords": [
     "alchemy",
@@ -20,9 +18,13 @@
   "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^4.6.6",
+    "babelify": "^5.0.4",
     "chai": "^2.1.1",
     "eslint": "^0.16.1",
+    "grunt-browserify": "^3.5.0",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-stylus": "^0.21.0",
+    "grunt-contrib-watch": "^0.6.1",
     "jscs": "^1.11.3",
     "mocha": "^2.1.0",
     "normalize-css": "^2.3.1",
@@ -76,5 +78,10 @@
         0
       ]
     }
+  },
+  "dependencies": {
+    "backbone-skull": "^0.2.0",
+    "normalize-css": "^2.3.1",
+    "rivets": "^0.8.0"
   }
 }

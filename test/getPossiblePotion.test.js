@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 'use strict';
 
-import {getPossiblePotion} from '../src/alchemy.js';
+import {getPossiblePotion} from '../src/lib/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 
