@@ -112,7 +112,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-browserify');
 
-	grunt.registerTask('build', ['stylus:dev', 'jade:serverDev', 'jade:clientDev', 'babel:dev', 'browserify:dev']);
+	grunt.registerTask('build', ['stylus:dev', 'jade:serverDev', 'jade:clientDev', 'browserify:dev']);
 	grunt.registerTask('prod', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
 	grunt.registerTask('default', ['build', 'watch']);
 };
