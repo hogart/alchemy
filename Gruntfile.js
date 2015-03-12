@@ -89,7 +89,7 @@ module.exports = function (grunt) {
 
 		watch: {
 			styles: {
-                files: ['styles/blocks/*/*.styl', 'styles/index.styl'],
+                files: ['styles/*/*.styl', 'styles/index.styl'],
                 tasks: ['stylus:dev']
             },
 			templatesServer: {
