@@ -51,8 +51,8 @@
     "disallowSpaceAfterPrefixUnaryOperators": true,
     "excludeFiles": [
       "node_modules",
-      "tools",
-      "coverage"
+      "lib",
+      "public"
     ]
   },
   "eslintConfig": {
