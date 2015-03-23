@@ -1,1 +1,14 @@
 @import "../node_modules/normalize-css/normalize.css";
+
+@import "common/layout";
+@import "overall/overall";
+@import "ingredient/ingredient";
+@import "footer/footer";
+
+::-webkit-scrollbar
+    background-color rgba(color-border, 0.1)
+
+::-webkit-scrollbar-thumb
+    background-color transparentify(color-border, 0.3)
+    :hover > &
+        background-color transparentify(color-border, 0.65)

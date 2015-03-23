@@ -1,0 +1,66 @@
+@require "./colors"
+@require "./vars"
+
+flexParent()
+	display flex
+	flex-wrap nowrap
+	justify-content flex-start
+	align-content stretch
+	align-items stretch
+
+
+flexParent-column()
+	flexParent()
+	flex-direction column
+
+
+flexParent-row()
+	flexParent()
+	flex-direction row
+
+
+flexChild()
+	flex 1
+	align-self auto
+
+
+html
+	height: 100%
+	background-color color-bg
+
+
+body
+	height: 100%
+
+	flexParent-column()
+	flexChild()
+
+
+header
+	flexChild()
+	flex 0 0 auto
+	height 70px
+	border-bottom default-border
+
+
+section
+	flexParent-row()
+	flexChild()
+
+	> nav
+		flexChild()
+		flex 0 0 auto
+		width 220px
+
+
+	> article
+		flexChild()
+		border-left default-border
+		overflow-y scroll
+
+
+footer
+	flexChild()
+	flex 0 0 auto
+	height 70px
+	border-top default-border

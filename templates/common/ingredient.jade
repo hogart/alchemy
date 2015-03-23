@@ -1,0 +1,6 @@
+mixin ingredient(i)
+    div.ingredient
+        h6.ingredient-title= i.name
+        ul.ingredient-list
+            each effect in i.effects
+                li= effect
