@@ -20,7 +20,7 @@
   "devDependencies": {
     "babelify": "^5.0.4",
     "chai": "^2.1.1",
-    "eslint": "^0.16.1",
+    "eslint": "^0.17.1",
     "grunt-browserify": "^3.5.0",
     "grunt-contrib-jade": "^0.14.1",
     "grunt-contrib-stylus": "^0.21.0",
@@ -60,7 +60,11 @@
       "modules": true
     },
     "env": {
+      "browser": true,
       "es6": true
+    },
+    "globals": {
+      "console": true
     },
     "rules": {
       "quotes": [
@@ -68,15 +72,13 @@
         "single",
         "avoid-escape"
       ],
-      "strict": [
-        2,
-        "global"
-      ],
+      "strict": true,
       "no-extra-strict": false,
       "global-strict": false,
       "eol-last": [
         0
-      ]
+      ],
+      "no-console": false
     }
   },
   "dependencies": {

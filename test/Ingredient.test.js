@@ -8,10 +8,6 @@ import {assert} from 'chai';
 const alitHide = mockData.ingredients.alitHide;
 
 describe('Ingredient', () => {
-	//it('should have 4 effects', () => {
-	//	assert.equal(alitHide.effects.length, 4)
-	//});
-
 	it('should correctly determine if it has given effect', () => {
 
 		assert.ok(alitHide.hasEffect('Drain Intelligence'));
