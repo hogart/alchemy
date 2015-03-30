@@ -2,6 +2,6 @@
 
 import Skull from 'backbone-skull';
 import rivets from 'rivets';
-import {Ingredient} from './lib/alchemy.js'
+import CollectionIngredient from './Collection/Ingredient.js'
 
-console.log(Skull, rivets);
+console.log(CollectionIngredient);

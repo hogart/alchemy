@@ -1,13 +1,13 @@
 /* eslint-env mocha */
 'use strict';
 
-import {getPossiblePotion} from '../src/lib/alchemy.js';
+import {getPossiblePotions} from '../src/lib/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 
-describe('getPossiblePotion', () => {
+describe('getPossiblePotions', () => {
 	it('should correctly detect possible potions', () => {
-		let detectAnimal = getPossiblePotion([
+		let detectAnimal = getPossiblePotions([
 			mockData.ingredients.alitHide,
 			mockData.ingredients.ampoulePod
 		]);
@@ -17,7 +17,7 @@ describe('getPossiblePotion', () => {
 			'alit hide and ampoule pod gives "Detect Animal"'
 		);
 
-		let detectAnimalAndTelekinesis = getPossiblePotion([
+		let detectAnimalAndTelekinesis = getPossiblePotions([
 			mockData.ingredients.alitHide,
 			mockData.ingredients.ampoulePod,
 			mockData.ingredients.boneMeal
@@ -37,7 +37,7 @@ describe('getPossiblePotion', () => {
 
 	it('should return empty object if there\'s no potions', () => {
 		assert.deepEqual(
-			getPossiblePotion([
+			getPossiblePotions([
 				mockData.ingredients.alitHide,
 				mockData.ingredients.kreshFiber
 			]),

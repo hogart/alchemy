@@ -5,7 +5,7 @@ import {predictPotion} from '../src/lib/alchemy.js';
 import mockData from './mockData.js';
 import {assert} from 'chai';
 
-describe('getPossiblePotion', () => {
+describe('getPossiblePotions', () => {
 	it('should correctly find which effects have 2 or more ingredients in common', () => {
 		assert.deepEqual(
 			predictPotion([

@@ -9,14 +9,13 @@ const alitHide = mockData.ingredients.alitHide;
 
 describe('Ingredient', () => {
 	it('should correctly determine if it has given effect', () => {
-
 		assert.ok(alitHide.hasEffect('Drain Intelligence'));
 		assert.notOk(alitHide.hasEffect('Paralyze'));
 	});
 
 	it('should correctly find shared effects', () => {
 		assert.deepEqual(alitHide.getSharedEffects(mockData.ingredients.ampoulePod), ['Detect Animal']);
-		assert.equal(alitHide.getSharedEffects(mockData.ingredients.kreshFiber).length, 0);
+		assert.lengthOf(alitHide.getSharedEffects(mockData.ingredients.kreshFiber), 0);
 	});
 
 	it('should correctly determine if it has some of desired effects', () => {
