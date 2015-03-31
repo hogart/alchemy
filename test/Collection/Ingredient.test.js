@@ -2,6 +2,7 @@
 'use strict';
 
 import CollectionIngredient from '../../src/Collection/Ingredient.js';
+import CollectionPotion from '../../src/Collection/Potion.js';
 import mockData from '../mockData.js';
 import {assert} from 'chai';
 
@@ -30,7 +31,17 @@ const ingredients = new CollectionIngredient(
 );
 
 describe('CollectionIngredient', () => {
-	it('should correctly determine possible potions', () => {
-		assert.property(ingredients.getPossiblePotions(), 'Detect Animal')
+	let potions = ingredients.getPossiblePotions();
+
+	it('CollectionIngredient#getPossiblePotions should return PotionCollection', () => {
+		assert.instanceOf(ingredients.getPossiblePotions(), CollectionPotion);
+		assert.lengthOf(potions, 1);
 	});
+
+	it('CollectionIngredient#getPossiblePotions result should contain proper model', () => {
+		let potion = potions.models[0];
+
+		assert.equal(potion.get('name'), 'Detect Animal');
+		assert.lengthOf(potion.get('ingredientNames'), 2);
+	})
 });
