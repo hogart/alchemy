@@ -23,8 +23,6 @@ export default class ViewAbstract extends Skull.View {
                 data: bindings,
                 template: template
             });
-
-            console.log(this.ractive);
         }
     }
 }
