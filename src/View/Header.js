@@ -11,6 +11,12 @@ export default class ViewHeader extends ViewAbstract {
         return headerTemplate
     }
 
+    __bindings__ () {
+        return {
+            model: this.model
+        }
+    }
+
     initialize (options) {
         super.initialize.call(this, options);
 
@@ -19,9 +25,3 @@ export default class ViewHeader extends ViewAbstract {
         this.onRender();
     }
 }
-
-ViewHeader.prototype.__bindings__ = function () {
-    return {
-        model: this.model
-    }
-};

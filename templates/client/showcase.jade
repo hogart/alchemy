@@ -1,0 +1,13 @@
+input.overall-search(type="search", placeholder="Filter...", value="{{searchTerm}}")
+
+div.overall-listing
+    | {{#each showcaseCollection}}
+    | {{#(!searchTerm || this.hasString(searchTerm.trim().toLowerCase()))}}
+    div.ingredient
+        h6.ingredient-title {{name}}
+        ul.ingredient-list
+            | {{#each effects}}
+            li {{.}}
+            | {{/each}}
+    | {{/}}
+    | {{/each}}

@@ -8,6 +8,7 @@ Backbone.$ = require('jquery');
 
 import Skull from 'backbone-skull';
 import CollectionIngredient from './Collection/Ingredient.js';
+import morrowind from './lib/data/morrowind.js';
 import ViewRoot from './View/Root.js';
 import Router from './Router.js';
 
@@ -15,8 +16,12 @@ class AlchemyApplication extends Skull.Application {}
 
 const appConfig = {
     rootView: ViewRoot,
-    autostart: true,
+    //autostart: true,
     router: Router
 };
 
 const app = new AlchemyApplication(appConfig);
+
+app.registry.register('showcaseCollection', new CollectionIngredient(morrowind, {registry: app.registry}));
+
+app.start();
