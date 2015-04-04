@@ -48,41 +48,24 @@ module.exports = function (grunt) {
 				files: {
 					'public/index.html': ['templates/server/index.jade']
 				}
-			},
-			clientDev: {
-				options: {
-					client: true,
-					amd: false,
-					compileDebug: true
-				},
-				files: {
-					'public/templates.js': ['templates/client/**/*.jade']
-				}
-			},
-			clientProd: {
-				options: {
-					client: true,
-					amd: false,
-					compileDebug: false
-				},
-				files: {
-					'public/templates.min.js': ['templates/client/**/*.jade']
-				}
 			}
 		},
 
 		browserify: {
 			options: {
-				transform: [['babelify', {
-					sourceMap: true
-				}]],
-				browserifyOptions: {
-					debug: true
-				}
+				transform: [
+					['jadeify'],
+					['babelify', {
+						sourceMap: true
+					}]
+				]
 			},
 			dev: {
 				files: {
-					'public/index.js': ['src/index.js']
+					'public/index.js': ['src/index.js', 'templates/client/!**!/!*.jade']
+				},
+				browserifyOptions: {
+					debug: true
 				}
 			}
 		},
@@ -96,12 +79,8 @@ module.exports = function (grunt) {
 				files: ['templates/server/*.jade', 'templates/server/**/*.jade', 'templates/common/**/*.jade'],
 				tasks: ['jade:serverDev']
 			},
-			templatesClient: {
-				files: ['templates/client/*.jade', 'templates/client/**/*.jade', 'templates/common/**/*.jade'],
-				tasks: ['jade:clientDev']
-			},
 			browserify: {
-				files: ['src/**/*.*'],
+				files: ['src/!**!/!*.*', 'templates/client/!*.jade'],
 				tasks: ['browserify:dev']
 			}
 		}
@@ -112,7 +91,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-browserify');
 
-	grunt.registerTask('build', ['stylus:dev', 'jade:serverDev', 'jade:clientDev', 'browserify:dev']);
-	grunt.registerTask('prod', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
-	grunt.registerTask('default', ['build', 'watch']);
+	grunt.registerTask('dev', ['stylus:dev', 'jade:serverDev', 'browserify:dev']);
+	grunt.registerTask('build', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
+	grunt.registerTask('default', ['dev', 'watch']);
 };

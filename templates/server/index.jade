@@ -9,36 +9,18 @@ html(lang="en")
         title TES Alchemy Helper
 
     body
-        include ../common/ingredient
-
         header.header
-            include ./header
 
         section
             nav.overall
                 input.overall-search(type="search", placeholder="Filter...")
 
                 div.overall-listing
-                    +ingredient({name: 'Alit Hide', effects: ['Drain Intelligence', 'Resist Poison', 'Telekinesis', 'Detect Animal']})
-                    +ingredient({ name: 'Ampoule Pod', effects: ['Water Walking', 'Paralyze', 'Detect Animal', 'Drain Willpower']})
-                    +ingredient({ name: 'Horker Tusk', effects: ['Drain Alteration', 'Fortify Intelligence', 'Fortify Maximum Magicka', 'Detect Animal']})
-                    +ingredient({ name: 'Alit Hide', effects: ['Drain Intelligence', 'Resist Poison', 'Telekinesis', 'Detect Animal']})
-                    +ingredient({ name: 'Ampoule Pod', effects: ['Water Walking', 'Paralyze', 'Detect Animal', 'Drain Willpower']})
-                    +ingredient({ name: 'Horker Tusk', effects: ['Drain Alteration', 'Fortify Intelligence', 'Fortify Maximum Magicka', 'Detect Animal']})
-                    +ingredient({ name: 'Alit Hide', effects: ['Drain Intelligence', 'Resist Poison', 'Telekinesis', 'Detect Animal']})
-                    +ingredient({ name: 'Ampoule Pod', effects: ['Water Walking', 'Paralyze', 'Detect Animal', 'Drain Willpower']})
-                    +ingredient({ name: 'Horker Tusk', effects: ['Drain Alteration', 'Fortify Intelligence', 'Fortify Maximum Magicka', 'Detect Animal']})
-                    +ingredient({ name: 'Alit Hide', effects: ['Drain Intelligence', 'Resist Poison', 'Telekinesis', 'Detect Animal']})
-                    +ingredient({ name: 'Ampoule Pod', effects: ['Water Walking', 'Paralyze', 'Detect Animal', 'Drain Willpower']})
-                    +ingredient({ name: 'Horker Tusk', effects: ['Drain Alteration', 'Fortify Intelligence', 'Fortify Maximum Magicka', 'Detect Animal']})
 
             article.inventory
-
 
 
         footer.footer
             include ./footer
 
-
-        script(src="./templates.js")
         script(src="./index.js")
