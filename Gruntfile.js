@@ -4,6 +4,18 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		connect: {
+			dev: {
+				options: {
+					port: 7008,
+					hostname: 'localhost',
+					base: 'public',
+					open: true,
+					livereload: true
+				}
+			}
+		},
+
 		stylus: {
 			options: {
 				'include css': true,
@@ -80,8 +92,14 @@ module.exports = function (grunt) {
 				tasks: ['jade:serverDev']
 			},
 			browserify: {
-				files: ['src/!**!/!*.*', 'templates/client/!*.jade'],
+				files: ['src/**/*.*', 'templates/client/*.jade'],
 				tasks: ['browserify:dev']
+			},
+			livereload: {
+				options: {
+					livereload: true
+				},
+				files: ['public/**/*']
 			}
 		}
 	});
@@ -90,8 +108,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	grunt.registerTask('dev', ['stylus:dev', 'jade:serverDev', 'browserify:dev']);
 	grunt.registerTask('build', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
-	grunt.registerTask('default', ['dev', 'watch']);
+	grunt.registerTask('default', ['dev', 'connect', 'watch']);
 };
