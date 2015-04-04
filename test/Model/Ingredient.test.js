@@ -52,4 +52,24 @@ describe('ModelIngredient', () => {
 		assert.ok(alitHide.hasSomeEffects(['Telekinesis', 'Water Walking']));
 		assert.notOk(alitHide.hasSomeEffects(['Paralyze', 'Drain Willpower']));
 	});
+
+	it('should correctly determine if it has given text in name', () => {
+		assert.ok(alitHide.hasString('alit'), 'Alit Hide have "alit"');
+		assert.ok(ampoulePod.hasString('Ampoule Pod'.toLowerCase()), 'Ampoule Pod have "Ampoule Pod"');
+		assert.ok(ampoulePod.hasString('ampoule'), 'Ampoule Pod have "ampoule"');
+
+		assert.notOk(alitHide.hasString('wtf'), 'Alit Hide does not have "wtf"');
+		assert.notOk(ampoulePod.hasString('pod123'), 'Ampoule Pod does not have "pod123" (sic!)');
+		assert.notOk(kreshFiber.hasString('Kresh123'.toLowerCase()), 'Kresh Fiber do not have "Kresh123"');
+	});
+
+	it('should correctly determine if it has given text in effects', () => {
+		assert.ok(alitHide.hasString('drain'), 'Alit Hide have `drain`');
+		assert.ok(ampoulePod.hasString('Water Walking'.toLowerCase()), 'Ampoule Pod have "Water Walking"');
+		assert.ok(ampoulePod.hasString('water w'), 'Ampoule Pod have "water w"');
+
+		assert.notOk(alitHide.hasString('drain willpower'), 'Alit Hide does not have "drain willpower"');
+		assert.notOk(ampoulePod.hasString('Paralize'.toLowerCase()), 'Ampoule Pod does not have "Paralize" (sic!)');
+		assert.notOk(kreshFiber.hasString('Luck123'.toLowerCase()), 'Kresh Fiber do not have "Luck123"');
+	});
 });
