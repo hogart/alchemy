@@ -18,8 +18,8 @@
   "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babelify": "^5.0.4",
+    "babel": "^5.0.8",
+    "babelify": "^6.0.x",
     "chai": "^2.2.x",
     "eslint": "^0.18.x",
     "grunt-browserify": "^3.6.x",
@@ -83,8 +83,12 @@
     }
   },
   "dependencies": {
+    "backbone": "^1.1.2",
     "backbone-skull": "^0.2.0",
+    "jquery": "^2.1.3",
     "normalize-css": "^2.3.1",
-    "rivets": "^0.8.0"
+    "ractive": "^0.7.2",
+    "ractive-adaptors-backbone": "^0.2.0",
+    "underscore": "^1.8.x"
   }
 }
