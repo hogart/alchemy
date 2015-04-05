@@ -1,8 +1,16 @@
 {
   "name": "tes-alchemy",
-  "version": "0.0.1",
-  "description": "TES alchemy engine",
+  "version": "0.1.0",
+  "description": "TES alchemy engine and UI",
+  "author": {
+    "name": "Konstantin Kitmanov",
+    "email": "doctor.hogart@gmail.com"
+  },
   "main": "alchemy.js",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:hogart/tes-alchemy.git"
+  },
   "scripts": {
     "start": "grunt",
     "test": "npm run lint && npm run mocha",
