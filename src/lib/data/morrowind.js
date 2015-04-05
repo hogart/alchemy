@@ -457,7 +457,7 @@ export default [{
 	name: 'Ripened Belladonna Berries',
 	icon: 'http://images.uesp.net/7/76/BM-icon-ingredient-Belladonna_Berries.png',
 	note: 'Somewhat less common than the unripe variety, but still relatively widespread.',
-	effects: ['Resist Magicka', 'Restore Magicka', 'Fortify Magicka', 'Drain Magicka', '*']
+	effects: ['Resist Magicka', 'Restore Magicka', 'Fortify Magicka', 'Drain Magicka']
 }, {
 	name: 'Snow Bear Pelt',
 	icon: 'http://images.uesp.net/2/2a/BM-icon-ingredient-Snow_Bear_Pelt.png',
@@ -472,7 +472,7 @@ export default [{
 	name: 'Unripened Belladonna Berries',
 	icon: 'http://images.uesp.net/7/76/BM-icon-ingredient-Belladonna_Berries.png',
 	note: 'Grows all over Solstheim.Common at barrow entrances.',
-	effects: ['Resist Magicka', 'Restore Magicka', 'Fortify Magicka', 'Drain Magicka', '*']
+	effects: ['Resist Magicka', 'Restore Magicka', 'Fortify Magicka', 'Drain Magicka']
 }, {
 	name: 'Wolf Pelt',
 	icon: 'http://images.uesp.net/1/1d/BM-icon-ingredient-Wolf_Pelt.png',
