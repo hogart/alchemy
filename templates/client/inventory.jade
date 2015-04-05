@@ -1,0 +1,8 @@
+| {{#each inventory}}
+div.ingredient(data-idx="{{@index}}")
+    h6.ingredient-title {{name}}
+    ul.ingredient-list
+        | {{#each effects}}
+        li {{.}}
+        | {{/each}}
+| {{/each}}

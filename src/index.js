@@ -23,5 +23,6 @@ const appConfig = {
 const app = new AlchemyApplication(appConfig);
 
 app.registry.register('showcaseCollection', new CollectionIngredient(morrowind, {registry: app.registry}));
+app.registry.register('inventory', new CollectionIngredient([], {registry: app.registry}));
 
 app.start();
