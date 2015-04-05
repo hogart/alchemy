@@ -3,7 +3,7 @@
 import Skull from 'backbone-skull';
 import _ from 'underscore';
 
-class CollectionAbstract extends Skull.Collection {
+export default class ModelAbstract extends Skull.Model {
     _parentResult (propertyName) {
         let prop = super[propertyName];
         if (_.isFunction (prop)) {
@@ -13,5 +13,3 @@ class CollectionAbstract extends Skull.Collection {
         }
     }
 }
-
-export default CollectionAbstract;

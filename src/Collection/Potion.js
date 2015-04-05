@@ -3,10 +3,9 @@
 import CollectionAbstract from './Abstract.js';
 import ModelPotion from '../Model/Potion.js';
 
-class CollectionPotion extends CollectionAbstract {
+export default class CollectionPotion extends CollectionAbstract {
 
 }
 
-CollectionAbstract.prototype.model = ModelPotion;
-
-export default CollectionPotion;
+CollectionPotion.prototype.model = ModelPotion;
+CollectionPotion.__super__ = CollectionAbstract.prototype;

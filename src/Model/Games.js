@@ -1,8 +1,16 @@
 'use strict';
 
-import Skull from 'backbone-skull';
+import AbstractModel from './Abstract.js';
 
-export default class ModelGames extends Skull.Model {
+export default class ModelGames extends AbstractModel {
+    defaults () {
+        return {
+            mw: false,
+            ob: false,
+            sr: false
+        }
+    }
+
     initialize (attributes, options) {
         super.initialize.call(this, attributes, options);
 
@@ -21,10 +29,4 @@ export default class ModelGames extends Skull.Model {
             this.set(set);
         }
     }
-};
-
-ModelGames.prototype.defaults = {
-    mw: false,
-    ob: false,
-    sr: false
 };

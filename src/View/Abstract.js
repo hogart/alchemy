@@ -6,6 +6,15 @@ import Ractive from 'ractive';
 import RactiveBackboneAdaptor from 'ractive-adaptors-backbone';
 
 export default class ViewAbstract extends Skull.View {
+    _parentResult (propertyName) {
+        let prop = super[propertyName];
+        if (_.isFunction (prop)) {
+            return prop.call(this);
+        } else {
+            return prop;
+        }
+    }
+
     onRender () {
         super.onRender();
         this._ensureRactive();
@@ -17,13 +26,17 @@ export default class ViewAbstract extends Skull.View {
         if (bindings) {
             let template = _.result(this, 'tpl');
 
-            this.ractive = new Ractive({
-                adapt: 'Backbone',
-                el: this.el,
-                data: bindings,
-                template: template
-            });
+            try {
+                this.ractive = new Ractive({
+                    adapt: 'Backbone',
+                    el: this.el,
+                    data: bindings,
+                    template: template
+                });
+            } catch (e) {
+                console.log(this.el, this.cid)
+            }
+
         }
     }
 }
-

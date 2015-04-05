@@ -1,9 +1,7 @@
 'use strict';
 
-import Skull from 'backbone-skull';
+import AbstractModel from './Abstract.js';
 
-class ModelPotion extends Skull.Model {
+export default class ModelPotion extends AbstractModel {
 
 }
-
-export default ModelPotion;

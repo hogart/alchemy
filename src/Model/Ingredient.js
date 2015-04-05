@@ -1,9 +1,9 @@
 'use strict';
 
-import Skull from 'backbone-skull';
+import AbstractModel from './Abstract.js';
 import {Ingredient} from '../lib/alchemy.js'
 
-class ModelIngredient extends Skull.Model {
+export default class ModelIngredient extends AbstractModel {
     constructor (attributes, options) {
         super(attributes, options);
 
@@ -45,5 +45,3 @@ class ModelIngredient extends Skull.Model {
         }
     }
 }
-
-export default ModelIngredient;
