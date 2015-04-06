@@ -22,7 +22,8 @@ export default class ViewInventory extends ViewAbstract {
 
     events () {
         return {
-            'click .ingredient': 'onIngredientClick'
+            'click .ingredient': 'onIngredientClick',
+            'click .js-clearAll': 'onClearAllClick'
         }
     }
 
@@ -38,5 +39,9 @@ export default class ViewInventory extends ViewAbstract {
         let model = this.inventory.at(index);
 
         this.inventory.remove(model);
+    }
+
+    onClearAllClick (/*event*/) {
+        this.inventory.reset();
     }
 };

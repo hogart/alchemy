@@ -16,6 +16,7 @@ export default class CollectionShowcase extends CollectionIngredient {
         super.initialize.call(this, models, options);
 
         this.listenTo(this.inventory, 'remove', this.onInventoryRemove);
+        this.listenTo(this.inventory, 'reset', this.onInventoryReset);
     }
 
     findByTitle (name) {
@@ -30,5 +31,9 @@ export default class CollectionShowcase extends CollectionIngredient {
         let model = this.at(index);
         this.inventory.add(model.clone());
         model.set('inInventory', true);
+    }
+
+    onInventoryReset () {
+        this.where({inInventory: true}).forEach((model) => model.set('inInventory', false));
     }
 };
