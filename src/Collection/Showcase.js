@@ -19,7 +19,7 @@ export default class CollectionShowcase extends CollectionIngredient {
         super.initialize.call(this, models, options);
 
         this.listenTo(this.inventory, 'clearAll', this.onInventoryClear);
-        this.listenTo(this.inventory, 'reset', this.onInventoryReset);
+        this.listenTo(this.inventory, 'remove', this.onInventoryRemove);
 
         this.listenTo(this.games, 'change:active', this.onGameChange);
     }
