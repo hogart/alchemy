@@ -7,7 +7,8 @@ export default class ModelGames extends AbstractModel {
         return {
             mw: false,
             ob: false,
-            sr: false
+            sr: false,
+            active: ''
         }
     }
 
@@ -19,14 +20,15 @@ export default class ModelGames extends AbstractModel {
 
     onPath (routeName) {
         if (!this.get(routeName)) {
-            let set = {
+            let data = {
                 mw: false,
                 ob: false,
-                sr: false
+                sr: false,
+                active: routeName
             };
-            set[routeName] = true;
+            data[routeName] = true;
 
-            this.set(set);
+            this.set(data);
         }
     }
 };

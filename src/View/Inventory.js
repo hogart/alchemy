@@ -42,6 +42,6 @@ export default class ViewInventory extends ViewAbstract {
     }
 
     onClearAllClick (/*event*/) {
-        this.inventory.reset();
+        this.inventory.clearAll();
     }
 };

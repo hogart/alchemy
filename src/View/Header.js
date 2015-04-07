@@ -2,13 +2,24 @@
 
 import Skull from 'backbone-skull';
 import ViewAbstract from './Abstract.js';
-import rtpl from '../rtpl.js';
-import ModelGames from '../Model/Games.js';
+import _ from 'underscore';
 import headerTemplate from '../../templates/client/header.jade';
 
 export default class ViewHeader extends ViewAbstract {
     tpl () {
         return headerTemplate
+    }
+
+    __registry__ () {
+        let reg = this._parentResult('__registry__');
+
+        return _.extend(
+            {},
+            reg,
+            {
+                model: 'games'
+            }
+        )
     }
 
     __bindings__ () {
@@ -19,8 +30,6 @@ export default class ViewHeader extends ViewAbstract {
 
     initialize (options) {
         super.initialize.call(this, options);
-
-        this.model = new ModelGames({}, {registry: this.registry});
 
         this.onRender();
     }

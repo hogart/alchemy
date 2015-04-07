@@ -7,13 +7,18 @@ let Backbone = require('backbone');
 Backbone.$ = require('jquery');
 
 import Skull from 'backbone-skull';
-import CollectionIngredient from './Collection/Ingredient.js';
+import ModelGames from './Model/Games.js';
+import CollectionInventory from './Collection/Inventory.js';
 import CollectionShowcase from './Collection/Showcase.js';
-import morrowind from './lib/data/morrowind.js';
 import ViewRoot from './View/Root.js';
 import Router from './Router.js';
 
-class AlchemyApplication extends Skull.Application {}
+class AlchemyApplication extends Skull.Application {
+    create (name, constructor, data, params) {
+        params.registry = this.registry;
+        this.registry.register(name, new constructor(data, params));
+    }
+}
 
 const appConfig = {
     rootView: ViewRoot,
@@ -23,7 +28,8 @@ const appConfig = {
 
 const app = new AlchemyApplication(appConfig);
 
-app.registry.register('inventory', new CollectionIngredient([], {registry: app.registry}));
-app.registry.register('showcaseCollection', new CollectionShowcase(morrowind, {registry: app.registry}));
+app.create('games', ModelGames, {}, {});
+app.create('inventory', CollectionInventory, [], {});
+app.create('showcaseCollection', CollectionShowcase, [], {});
 
 app.start();

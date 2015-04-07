@@ -3,11 +3,14 @@
 import CollectionIngredient from  './Ingredient.js';
 import _ from 'underscore';
 
+import data from '../lib/data/index.js';
+
 export default class CollectionShowcase extends CollectionIngredient {
     __registry__ () {
         let parentReg = this._parentResult('__registry__');
 
         return _.extend({}, parentReg, {
+            games: 'games',
             inventory: 'inventory'
         });
     }
@@ -15,8 +18,10 @@ export default class CollectionShowcase extends CollectionIngredient {
     initialize (models, options) {
         super.initialize.call(this, models, options);
 
-        this.listenTo(this.inventory, 'remove', this.onInventoryRemove);
+        this.listenTo(this.inventory, 'clearAll', this.onInventoryClear);
         this.listenTo(this.inventory, 'reset', this.onInventoryReset);
+
+        this.listenTo(this.games, 'change:active', this.onGameChange);
     }
 
     findByTitle (name) {
@@ -33,7 +38,17 @@ export default class CollectionShowcase extends CollectionIngredient {
         model.set('inInventory', true);
     }
 
-    onInventoryReset () {
-        this.where({inInventory: true}).forEach((model) => model.set('inInventory', false));
+    onInventoryClear () {
+        this.clearMarked();
+    }
+
+    clearMarked () {
+        this.where({inInventory: true}).forEach(model => model.set('inInventory', false));
+    }
+
+    onGameChange (model, active) {
+        this.clearMarked();
+        this.reset(data[active]);
+        this.inventory.reset([]);
     }
 };
