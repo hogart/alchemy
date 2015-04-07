@@ -31,17 +31,11 @@ const ingredients = new CollectionIngredient(
 );
 
 describe('CollectionIngredient', () => {
-	let potions = ingredients.getPossiblePotions();
-
-	it('CollectionIngredient#getPossiblePotions should return PotionCollection', () => {
-		assert.instanceOf(ingredients.getPossiblePotions(), CollectionPotion);
-		assert.lengthOf(potions, 1);
+	it('should correctly iterate over models attributes using for..of', () => {
+		for (let ingred of ingredients) {
+			assert.property(ingred, 'name', 'has `name` property');
+			assert.lengthOf(ingred.effects, 4, 'has effects property with length of 4');
+			break;
+		}
 	});
-
-	it('CollectionIngredient#getPossiblePotions result should contain proper model', () => {
-		let potion = potions.models[0];
-
-		assert.equal(potion.get('name'), 'Detect Animal');
-		assert.lengthOf(potion.get('ingredientNames'), 2);
-	})
 });
