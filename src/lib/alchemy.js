@@ -78,7 +78,9 @@ export function getPossiblePotions (currentIngredients) {
         if (!effects[effect]) {
             effects[effect] = [ingredient];
         } else {
-            effects[effect].push(ingredient);
+            if (effects[effect].indexOf(ingredient) === -1) { // some ingredients have same effect twice
+                effects[effect].push(ingredient);
+            }
 
             if (effects[effect].length === 2) {
                 potions[effect] = effects[effect];

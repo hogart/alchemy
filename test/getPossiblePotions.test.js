@@ -33,6 +33,12 @@ describe('getPossiblePotions', () => {
 			'Detect Animal',
 			'alit hide, ampoule pod and bonemeal gives "Detect Animal"'
 		);
+
+		assert.notProperty(
+			getPossiblePotions([mockData.ingredients.ashSalt]),
+			'Resist Magicka',
+			'Ash salts itself will not brew into any potion, despite it has "Resist Magicka" effect twice'
+		);
 	});
 
 	it('should return empty object if there\'s no potions', () => {
