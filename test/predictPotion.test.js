@@ -14,7 +14,8 @@ describe('getPossiblePotions', () => {
 			]),
 			[
 				'Detect Animal'
-			]
+			],
+			'alit hide and ampoule pod indeed makes you observant to animal presence'
 		);
 
 		assert.deepEqual(
@@ -27,7 +28,8 @@ describe('getPossiblePotions', () => {
 				'Detect Animal',
 				'Resist Poison',
 				'Water Walking'
-			]
+			],
+			'Given alit hide, ampoule pod and kwama cuttle, you can brew detect animal, resist poison or water walling potions'
 		);
 	});
 
@@ -37,7 +39,8 @@ describe('getPossiblePotions', () => {
 				mockData.ingredients.alitHide,
 				mockData.ingredients.kreshFiber
 			]),
-			0
+			0,
+			'No potions can be brewed from alit hide and kresh fiber. Go gather some more!'
 		);
 	});
 });

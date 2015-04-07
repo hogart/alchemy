@@ -41,7 +41,8 @@ describe('getPossiblePotions', () => {
 				mockData.ingredients.alitHide,
 				mockData.ingredients.kreshFiber
 			]),
-			{}
+			{},
+			'true negative when no possible potions'
 		);
 	});
 });

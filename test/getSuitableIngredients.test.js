@@ -12,7 +12,8 @@ describe('getSuitableIngredients', () => {
 				mockData.ingredients.alitHide,
 				mockData.ingredientList
 			),
-			3
+			3,
+			'3 ingredients combine with alit hide'
 		);
 	});
 
@@ -22,7 +23,8 @@ describe('getSuitableIngredients', () => {
 				mockData.ingredients.alitHide,
 				[mockData.ingredients.kreshFiber]
 			),
-			0
+			0,
+			'alit hide combines with nothing in list of single kresh fiber'
 		);
 	});
 });

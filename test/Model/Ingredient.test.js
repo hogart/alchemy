@@ -39,18 +39,18 @@ const kreshFiber = new ModelIngredient(
 
 describe('ModelIngredient', () => {
 	it('should correctly determine if it has given effect', () => {
-		assert.ok(alitHide.hasEffect('Drain Intelligence'));
-		assert.notOk(alitHide.hasEffect('Paralyze'));
+		assert.ok(alitHide.hasEffect('Drain Intelligence'), 'true positive desired effect');
+		assert.notOk(alitHide.hasEffect('Paralyze'), 'true negative desired effect');
 	});
 
 	it('should correctly find shared effects', () => {
-		assert.deepEqual(alitHide.getSharedEffects(ampoulePod), ['Detect Animal']);
-		assert.lengthOf(alitHide.getSharedEffects(kreshFiber), 0);
+		assert.deepEqual(alitHide.getSharedEffects(ampoulePod), ['Detect Animal'], 'array with single `detect animal` item');
+		assert.lengthOf(alitHide.getSharedEffects(kreshFiber), 0, 'no shared effects between alit hide and kresh fiber');
 	});
 
 	it('should correctly determine if it has some of desired effects', () => {
-		assert.ok(alitHide.hasSomeEffects(['Telekinesis', 'Water Walking']));
-		assert.notOk(alitHide.hasSomeEffects(['Paralyze', 'Drain Willpower']));
+		assert.ok(alitHide.hasSomeEffects(['Telekinesis', 'Water Walking']), 'alit hide has either telekinesis or water walking');
+		assert.notOk(alitHide.hasSomeEffects(['Paralyze', 'Drain Willpower']), 'alit hide have no neither paralyze nor drain willpower');
 	});
 
 	it('should correctly determine if it has given text in name', () => {
