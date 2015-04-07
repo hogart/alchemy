@@ -45,7 +45,11 @@ describe('CollectionInventory', () => {
 		assert.lengthOf(potion.ingredientNames, 2, 'from 2 ingredients');
 	});
 
-    it('should properly `clearAll` itself', function (done) {
+    it('should properly `clearAll` itself', (done) => {
+		inventory.potions = {reset: () => {
+			assert.ok(true, 'reset potions collection too')
+		}};
+
         assert.isFunction(inventory.clearAll, 'has method');
         inventory.listenTo(inventory, 'clearAll', function () {
             assert.ok(true, 'fired `clearAll` event');
