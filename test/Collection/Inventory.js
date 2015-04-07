@@ -33,16 +33,16 @@ const inventory = new CollectionInventory(
 describe('CollectionInventory', () => {
 	let potions = inventory.getPossiblePotions();
 
-	it('CollectionInventory#getPossiblePotions should return PotionCollection', () => {
-		assert.instanceOf(inventory.getPossiblePotions(), CollectionPotion, 'returns instance of CollectionPotion');
+	it('CollectionInventory#getPossiblePotions should return array', () => {
+		assert.isArray(potions, 'returns array');
 		assert.lengthOf(potions, 1, 'with 1 potion');
 	});
 
 	it('CollectionInventory#getPossiblePotions result should contain proper model', () => {
-		let potion = potions.models[0];
+		let potion = potions[0];
 
-		assert.equal(potion.get('name'), 'Detect Animal', 'potion of `Detect Animal`');
-		assert.lengthOf(potion.get('ingredientNames'), 2, 'from 2 ingredients');
+		assert.equal(potion.name, 'Detect Animal', 'potion of `Detect Animal`');
+		assert.lengthOf(potion.ingredientNames, 2, 'from 2 ingredients');
 	});
 
     it('should properly `clearAll` itself', function (done) {

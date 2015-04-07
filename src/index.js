@@ -10,6 +10,7 @@ import Skull from 'backbone-skull';
 import ModelGames from './Model/Games.js';
 import CollectionInventory from './Collection/Inventory.js';
 import CollectionShowcase from './Collection/Showcase.js';
+import CollectionPotion from './Collection/Potion';
 import ViewRoot from './View/Root.js';
 import Router from './Router.js';
 
@@ -29,6 +30,7 @@ const appConfig = {
 const app = new AlchemyApplication(appConfig);
 
 app.create('games', ModelGames, {}, {});
+app.create('potions', CollectionPotion, [], {});
 app.create('inventory', CollectionInventory, [], {});
 app.create('showcaseCollection', CollectionShowcase, [], {});
 

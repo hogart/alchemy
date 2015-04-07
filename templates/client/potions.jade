@@ -1,0 +1,8 @@
+| {{#each potions}}
+div.potion(data-idx="{{@index}}")
+    h6.potion-title {{name}}
+    ul.potion-list
+        | {{#each ingredientNames}}
+        li {{.}}
+        | {{/each}}
+| {{/each}}
