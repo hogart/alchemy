@@ -17,7 +17,8 @@ export default class ViewShowcase extends ViewAbstract {
     __registry__ () {
         return {
             showcaseCollection: 'showcaseCollection',
-            inventory: 'inventory'
+            inventory: 'inventory',
+            app: 'app'
         }
     }
 
@@ -27,10 +28,18 @@ export default class ViewShowcase extends ViewAbstract {
         }
     }
 
+    __ui__ () {
+        return {
+            'search': 'input'
+        }
+    }
+
     initialize (options) {
         super.initialize.call(this, options);
 
         this.onRender();
+
+        this.listenTo(this.app, 'searchByPotion', this.onSearchBy);
     }
 
     onIngredientClick (event) {
@@ -38,5 +47,15 @@ export default class ViewShowcase extends ViewAbstract {
         let index = parseInt(target.dataset.idx);
 
         this.showcaseCollection.toInventory(index);
+    }
+
+    onSearchBy (str) {
+        console.log(str);
+        this.ui.search.val(str);
+
+        let event = document.createEvent('HTMLEvents');
+        event.initEvent('change', true, true);
+
+        this.ui.search[0].dispatchEvent(event);
     }
 }

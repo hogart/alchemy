@@ -18,8 +18,8 @@ export default class ViewAbstract extends Skull.View {
     }
 
     onRender () {
-        super.onRender();
         this._ensureRactive();
+        super.onRender();
     }
 
     _ensureRactive () {

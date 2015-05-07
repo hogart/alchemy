@@ -56,7 +56,7 @@ export default class CollectionShowcase extends CollectionIngredient {
         this.inventory.reset([]);
     }
 
-    parse (rawData) { console.log(rawData);
+    parse (rawData) {
         //let actives = this.storage.getItem('actives' + this.active) || [];
 
         return rawData.map((ingredient, index) => {

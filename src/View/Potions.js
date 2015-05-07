@@ -10,7 +10,8 @@ export default class ViewPotions extends ViewAbstract {
 
     __registry__ () {
         return {
-            potions: 'potions'
+            potions: 'potions',
+            app: 'app'
         }
     }
 
@@ -20,9 +21,22 @@ export default class ViewPotions extends ViewAbstract {
         }
     }
 
+    events () {
+        return {
+            'click .potion': 'onPotionClick'
+        }
+    }
+
     initialize (options) {
         super.initialize.call(this, options);
 
         this.onRender();
+    }
+
+    onPotionClick (event) {
+        let titleNode = event.currentTarget.querySelector('.potion-title');
+        let title = titleNode.textContent.trim();
+
+        this.app.trigger('searchByPotion', title);
     }
 }
