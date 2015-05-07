@@ -1,9 +1,11 @@
 'use strict';
 
+import Backbone from 'backbone';
 import Skull from 'backbone-skull';
 import _ from 'underscore';
 import Ractive from 'ractive';
-import RactiveBackboneAdaptor from 'ractive-adaptors-backbone';
+import ractiveBackboneAdaptor from 'ractive-adaptors-backbone';
+ractiveBackboneAdaptor.Backbone = Backbone;
 
 export default class ViewAbstract extends Skull.View {
     _parentResult (propertyName) {
@@ -28,7 +30,7 @@ export default class ViewAbstract extends Skull.View {
 
             try {
                 this.ractive = new Ractive({
-                    adapt: 'Backbone',
+                    adapt: [ractiveBackboneAdaptor],
                     el: this.el,
                     data: bindings,
                     template: template
