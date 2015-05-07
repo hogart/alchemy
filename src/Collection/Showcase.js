@@ -1,7 +1,8 @@
 'use strict';
 
-import CollectionIngredient from  './Ingredient.js';
+import CollectionIngredient from  './Ingredient';
 import _ from 'underscore';
+//import JSONStorage from '../JSONStorage';
 
 import data from '../lib/data/index.js';
 
@@ -21,6 +22,8 @@ export default class CollectionShowcase extends CollectionIngredient {
         this.listenTo(this.inventory, 'clearAll', this.onInventoryClear);
         this.listenTo(this.inventory, 'remove', this.onInventoryRemove);
 
+        //this.storage = new JSONStorage('shwocase');
+        //this.active = '';
         this.listenTo(this.games, 'change:active', this.onGameChange);
     }
 
@@ -29,7 +32,7 @@ export default class CollectionShowcase extends CollectionIngredient {
     }
 
     onInventoryRemove (model/*, inventory, options*/) {
-        this.findByTitle(model.get('name')).set('inInventory', false);
+        this.get(model.id).set('inInventory', false);
     }
 
     toInventory (index) {
@@ -47,8 +50,21 @@ export default class CollectionShowcase extends CollectionIngredient {
     }
 
     onGameChange (model, active) {
+        //this.active = active;
         this.clearMarked();
         this.reset(data[active]);
         this.inventory.reset([]);
+    }
+
+    parse (rawData) {
+        //let actives = this.storage.getItem('actives' + this.active) || [];
+
+        return rawData.map((ingredient, index) => {
+            ingredient.id = index;
+            //if (actives.indexOf(ingredient.id)) {
+            //    ingredient.inInventory = true;
+            //}
+            return ingredient;
+        });
     }
 };
