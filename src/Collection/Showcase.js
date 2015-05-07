@@ -52,11 +52,11 @@ export default class CollectionShowcase extends CollectionIngredient {
     onGameChange (model, active) {
         //this.active = active;
         this.clearMarked();
-        this.reset(data[active]);
+        this.reset(data[active], {parse: true});
         this.inventory.reset([]);
     }
 
-    parse (rawData) {
+    parse (rawData) { console.log(rawData);
         //let actives = this.storage.getItem('actives' + this.active) || [];
 
         return rawData.map((ingredient, index) => {
