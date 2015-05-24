@@ -2,68 +2,68 @@
 @require "./vars"
 
 flexParent()
-	display flex
-	flex-wrap nowrap
-	justify-content flex-start
-	align-content stretch
-	align-items stretch
+    display flex
+    flex-wrap nowrap
+    justify-content flex-start
+    align-content stretch
+    align-items stretch
 
 
 flexParent-column()
-	flexParent()
-	flex-direction column
+    flexParent()
+    flex-direction column
 
 
 flexParent-row()
-	flexParent()
-	flex-direction row
+    flexParent()
+    flex-direction row
 
 
 flexChild()
-	flex 1
-	align-self auto
+    flex 1
+    align-self auto
 
 
 html
-	height: 100%
-	background-color color-bg
+    height: 100%
+    background-color color-bg
 
 
 body
-	height: 100%
+    height: 100%
 
-	flexParent-column()
-	flexChild()
+    flexParent-column()
+    flexChild()
 
 
 header
-	flexChild()
-	flex 0 0 auto
-	height 70px
-	border-bottom default-border
+    flexChild()
+    flex 0 0 auto
+    height 70px
+    border-bottom default-border
 
 
 section
-	flexParent-row()
-	flexChild()
+    flexParent-row()
+    flexChild()
 
-	> nav
-		flexChild()
-		flex 0 0 auto
-		width (ingred-width * 2) + 45px
+    > nav
+        flexChild()
+        flex 0 0 auto
+        width (ingred-width * 2) + 45px
 
-	> article.inventory
-		flexChild()
-		border-left default-border
-		overflow-y scroll
+    > article.inventory
+        flexChild()
+        border-left default-border
+        overflow-y scroll
 
-	> article.potions
-		flexChild()
-		border-left default-border
-		overflow-y scroll
+    > article.potions
+        flexChild()
+        border-left default-border
+        overflow-y scroll
 
 
 footer
-	flexChild()
-	flex 0 0 auto
-	border-top default-border
+    flexChild()
+    flex 0 0 auto
+    border-top default-border
