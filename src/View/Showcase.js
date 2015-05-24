@@ -24,13 +24,14 @@ export default class ViewShowcase extends ViewAbstract {
 
     events () {
         return {
-            'click .ingredient:not(.marked)': 'onIngredientClick'
+            'click .ingredient:not(.marked)': 'onIngredientClick',
+            'click $search': 'onSearchClick'
         }
     }
 
     __ui__ () {
         return {
-            'search': 'input'
+            'search': 'input[type="search"]'
         }
     }
 
@@ -57,5 +58,9 @@ export default class ViewShowcase extends ViewAbstract {
         event.initEvent('change', true, true);
 
         this.ui.search[0].dispatchEvent(event);
+    }
+
+    onSearchFocus (event) {
+        this.ui.search.select();
     }
 }
