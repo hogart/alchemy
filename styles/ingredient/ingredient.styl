@@ -1,9 +1,11 @@
 @require '../common/mixins.styl'
+@require '../common/vars.styl'
 
 .ingredient
     display block
-    width 220px
-    padding .5em
+    box-sizing border-box
+    width (ingred-width * 2) + 35px
+    padding 5px
 
     border 1px solid beige
     border-radius 2px
@@ -13,7 +15,6 @@
     animated-transition()
 
     &.marked
-        pointer-events none
         cursor default
         opacity .3
         animated-transition()
@@ -31,3 +32,4 @@
         li
             display inline-block
             padding-right 1em
+            width ingred-width

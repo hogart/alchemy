@@ -1,0 +1,11 @@
+@require "./colors";
+@require "./vars";
+
+::-webkit-scrollbar
+  background-color rgba(color-border, 0.1)
+  width scrollbar-width
+
+::-webkit-scrollbar-thumb
+  background-color transparentify(color-border, 0.3)
+  :hover > &
+    background-color transparentify(color-border, 0.65)

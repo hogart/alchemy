@@ -1,6 +1,6 @@
 button(class="js-clearAll", disabled="{{inventory.length ? '' : 'disabled'}}") Clear inventory
 | {{#each inventory}}
-div.ingredient(data-idx="{{@index}}")
+div.ingredient(data-idx="{{@index}}", title="{{note}}")
     h6.ingredient-title {{name}}
     ul.ingredient-list
         | {{#each effects}}

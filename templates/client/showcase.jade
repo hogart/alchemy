@@ -3,7 +3,7 @@ input.overall-search(type="search", placeholder="Filter...", value="{{searchTerm
 div.overall-listing
     | {{#each showcaseCollection}}
     | {{#(!searchTerm || this.hasString(searchTerm.trim().toLowerCase()))}}
-    div(class="ingredient{{ inInventory ? ' marked' : ''}}", data-idx="{{@index}}" title="{{note}}")
+    div(class="ingredient{{ inInventory ? ' marked' : ''}}", data-idx="{{@index}}", title="{{note}}")
         h6.ingredient-title {{name}}
         ul.ingredient-list
             | {{#each effects}}
