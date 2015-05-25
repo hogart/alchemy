@@ -12,12 +12,13 @@ Doesn't require server-side to work, built files can be used from `/public/` dir
 
 ## Usage
 
-`git clone git@github.com:hogart/alchemy.git && npm install && npm start`
+`git clone git@github.com:hogart/alchemy.git && cd alchemy && npm install && npm start`
 
 Latter command opens new tab in your default browser.
 
 ## Roadmap
 
 * Add persistency between visits 
-* CI-ish workflow (do not build when lint or tests fail) 
+* CI-ish workflow (do not build when lint or tests fail), add code coverage tool
+* Move to Gulp?
 * Better looks?
