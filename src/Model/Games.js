@@ -1,8 +1,17 @@
 'use strict';
 
+import _ from 'underscore';
 import AbstractModel from './Abstract.js';
 
 export default class ModelGames extends AbstractModel {
+    __registry__ () {
+        let parentReg = this._parentResult('__registry__');
+
+        return _.extend({}, parentReg, {
+            app: 'app'
+        });
+    }
+
     defaults () {
         return {
             mw: false,
@@ -15,7 +24,7 @@ export default class ModelGames extends AbstractModel {
     initialize (attributes, options) {
         super.initialize.call(this, attributes, options);
 
-        this.listenTo(this.registry.acquire('app'), 'path', this.onPath);
+        this.listenTo(this.app, 'path', this.onPath);
     }
 
     onPath (routeName) {

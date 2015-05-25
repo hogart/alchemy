@@ -51,7 +51,6 @@ export default class ViewShowcase extends ViewAbstract {
     }
 
     onSearchBy (str) {
-        console.log(str);
         this.ui.search.val(str);
 
         let event = document.createEvent('HTMLEvents');

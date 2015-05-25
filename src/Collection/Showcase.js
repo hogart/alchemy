@@ -2,7 +2,7 @@
 
 import CollectionIngredient from  './Ingredient';
 import _ from 'underscore';
-//import JSONStorage from '../JSONStorage';
+import JSONStorage from '../JSONStorage';
 
 import data from '../lib/data/index.js';
 
@@ -19,12 +19,19 @@ export default class CollectionShowcase extends CollectionIngredient {
     initialize (models, options) {
         super.initialize.call(this, models, options);
 
+        this.storage = new JSONStorage('actives');
+
+        this.marked = new Set([]);
+        this.on('change:inInventory', function (model, value) {
+            this.marked[value ? 'add' : 'delete'](model.id);
+        }, this);
+
+        this.listenTo(this.games, 'change:active', this.onGameChange);
+
         this.listenTo(this.inventory, 'clearAll', this.onInventoryClear);
         this.listenTo(this.inventory, 'remove', this.onInventoryRemove);
 
-        //this.storage = new JSONStorage('shwocase');
-        //this.active = '';
-        this.listenTo(this.games, 'change:active', this.onGameChange);
+        window.addEventListener('beforeunload', this.saveMarked.bind(this));
     }
 
     findByTitle (name) {
@@ -50,20 +57,26 @@ export default class CollectionShowcase extends CollectionIngredient {
     }
 
     onGameChange (model, active) {
-        //this.active = active;
-        this.clearMarked();
+        if (this.activeGame) { // we have some active selection so we should save first
+            this.saveMarked();
+        }
+
+        this.activeGame = active;
+        this.clearMarked(true);
         this.reset(data[active], {parse: true});
+
         this.inventory.reset([]);
+        this.marked = new Set(this.storage.getItem(this.activeGame));
+        this.marked.forEach(this.toInventory.bind(this));
+    }
+
+    saveMarked () {
+        this.storage.setItem(this.activeGame, this.marked);
     }
 
     parse (rawData) {
-        //let actives = this.storage.getItem('actives' + this.active) || [];
-
         return rawData.map((ingredient, index) => {
             ingredient.id = index;
-            //if (actives.indexOf(ingredient.id)) {
-            //    ingredient.inInventory = true;
-            //}
             return ingredient;
         });
     }

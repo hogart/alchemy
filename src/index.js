@@ -13,11 +13,12 @@ import CollectionShowcase from './Collection/Showcase.js';
 import CollectionPotion from './Collection/Potion';
 import ViewRoot from './View/Root.js';
 import Router from './Router.js';
+import JSONStorage from './JSONStorage.js';
 
 class AlchemyApplication extends Skull.Application {
-    create (name, constructor, data, params) {
+    create (name, constructor, data, params = {}) {
         params.registry = this.registry;
-        this.registry.register(name, new constructor(data, params));
+        return this.registry.register(name, new constructor(data, params));
     }
 }
 
