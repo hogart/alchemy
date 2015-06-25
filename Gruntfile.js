@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 					compress: true
 				},
 				files: {
-					'public/index.min.css': 'styles/index.styl'
+					'public/index.css': 'styles/index.styl'
 				}
 			}
 		},
@@ -79,6 +79,14 @@ module.exports = function (grunt) {
 				browserifyOptions: {
 					debug: true
 				}
+			},
+			prod: {
+				files: {
+					'public/index.js': ['src/index.js', 'templates/client/!**!/!*.jade']
+				},
+				browserifyOptions: {
+					debug: false
+				}
 			}
 		},
 
@@ -111,6 +119,6 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	grunt.registerTask('dev', ['stylus:dev', 'jade:serverDev', 'browserify:dev']);
-	grunt.registerTask('build', ['stylus:prod', 'jade:serverProd', 'jade:clientProd']);
+	grunt.registerTask('build', ['stylus:prod', 'jade:serverProd', 'browserify:prod']);
 	grunt.registerTask('default', ['dev', 'connect', 'watch']);
 };
