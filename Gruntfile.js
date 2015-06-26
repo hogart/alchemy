@@ -92,9 +92,9 @@ module.exports = function (grunt) {
 
 		watch: {
 			styles: {
-                files: ['styles/*/*.styl', 'styles/index.styl'],
-                tasks: ['stylus:dev']
-            },
+				files: ['styles/*/*.styl', 'styles/index.styl'],
+				tasks: ['stylus:dev']
+			},
 			templatesServer: {
 				files: ['templates/server/*.jade', 'templates/server/**/*.jade', 'templates/common/**/*.jade'],
 				tasks: ['jade:serverDev']
@@ -113,8 +113,8 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-jade');
+	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 
